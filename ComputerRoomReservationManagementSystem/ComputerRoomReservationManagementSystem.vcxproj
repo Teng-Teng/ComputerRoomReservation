@@ -130,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="administrator.h" />
+    <ClInclude Include="computerRoom.h" />
     <ClInclude Include="globalFile.h" />
     <ClInclude Include="identity.h" />
     <ClInclude Include="student.h" />

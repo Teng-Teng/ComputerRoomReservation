@@ -5,6 +5,45 @@
 #include "teacher.h"
 #include "administrator.h"
 
+// Go to the student submenu page
+void studentMenu(Identity* &student) {
+	while (true) {
+		// Call the student submenu
+		student->operMenu();
+
+		// Casting base class pointer to derived class pointer
+		Student* stu = (Student*)student;
+
+		int select = 0;
+		cin >> select;
+
+		if (select == 1) {
+			// Apply for a reservation
+			stu->applyReservation();
+		}
+		else if (select == 2) {
+			// View your own reservation
+			stu->showMyReservation();
+		}
+		else if (select == 3) {
+			// View all reservation
+			stu->showAllReservation();
+		}
+		else if (select == 4) {
+			// Cancel reservation
+			stu->cancelReservation();
+		}
+		else {
+			// Logout
+			delete student;
+			cout << "Logout successful!" << endl;
+			system("pause");
+			system("cls");
+			return;
+		}
+	}
+}
+
 // Go to the administrator submenu page
 void administratorMenu(Identity* &administrator) {
 	while (true) {
@@ -19,22 +58,18 @@ void administratorMenu(Identity* &administrator) {
 
 		if (select == 1) {
 			// Add account
-			cout << "Add account" << endl;
 			admin->addPerson();
 		}
 		else if (select == 2) {
 			// View account
-			cout << "View account" << endl;
 			admin->showPerson();
 		} 
 		else if (select == 3) {
 			// View computer room information
-			cout << "View computer room information" << endl;
 			admin->showComputer();
 		}
 		else if (select == 4) {
 			// Clear reservation record
-			cout << "Clear reservation record" << endl;
 			admin->clearFile();
 		}
 		else {
@@ -110,6 +145,7 @@ void login(string fileName, int type) {
 				person = new Student(id, name, pwd);
 
 				// enter student submenu page
+				studentMenu(person);
 
 				return;
 			}

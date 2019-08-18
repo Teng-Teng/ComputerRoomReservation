@@ -1,5 +1,9 @@
 #pragma once
+#include <vector>
+#include <fstream>
 #include "identity.h"
+#include "computerRoom.h"
+#include "globalFile.h"
 
 // Student class
 class Student :public Identity {
@@ -28,4 +32,6 @@ public:
 	// Student ID
 	int m_Id;
 
+	// computer room container
+	vector<ComputerRoom> vCom;
 };

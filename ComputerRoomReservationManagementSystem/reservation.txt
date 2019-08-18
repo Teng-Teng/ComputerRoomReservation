@@ -1,0 +1,1 @@
+date:3 period:1 studentId:2 studentName:rose roomId:3 status:1

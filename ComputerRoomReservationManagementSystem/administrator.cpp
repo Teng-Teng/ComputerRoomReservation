@@ -13,6 +13,17 @@ Administrator::Administrator(string name, string pwd) {
 
 	// Initialize container, get student and teacher information in all files
 	this->initVector();
+
+	// Initialize computer room information
+	ifstream ifs;
+	ifs.open(COMPUTER_FILE, ios::in);
+
+	ComputerRoom com;
+	while (ifs >> com.m_ComId && ifs >> com.m_MaxNum) 
+		vCom.push_back(com);
+
+	ifs.close();
+	cout << "The number of computer room is: " << vCom.size() << endl;
 }
 
 // Menu interface
@@ -136,12 +147,23 @@ void Administrator::showPerson() {
 
 // View computer room information
 void Administrator::showComputer() {
+	cout << "The computer room information is as follows: " << endl;
 
+	for (vector<ComputerRoom>::iterator it = vCom.begin(); it != vCom.end(); it++)
+		cout << "Computer room ID: " << it->m_ComId << " Maximum capacity: " << it->m_MaxNum << endl;
+	
+	system("pause");
+	system("cls");
 }
 
 // Clear reservation record
 void Administrator::clearFile() {
+	ofstream ofs(RESERVATION_FILE, ios::trunc);
+	ofs.close();
 
+	cout << "Reservation record successfully cleared!" << endl;
+	system("pause");
+	system("cls");
 }
 
 // Initialize container

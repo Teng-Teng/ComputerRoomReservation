@@ -6,6 +6,7 @@
 #include <algorithm>
 #include "student.h"
 #include "teacher.h"
+#include "computerRoom.h"
 
 // Administrator class
 class Administrator :public Identity {
@@ -43,4 +44,6 @@ public:
 	// Teacher container
 	vector<Teacher> vTea;
 
+	// Computer room container
+	vector<ComputerRoom> vCom;
 };
