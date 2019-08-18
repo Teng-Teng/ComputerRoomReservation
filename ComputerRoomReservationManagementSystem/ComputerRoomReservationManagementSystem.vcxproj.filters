@@ -41,5 +41,8 @@
     <ClInclude Include="administrator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="globalFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@
 
 // Administrator class
 class Administrator :public Identity {
+public:
 	// Default constructor
 	Administrator();
 
