@@ -106,6 +106,7 @@ void Student::applyReservation() {
 
 // View your own reservation
 void Student::showMyReservation() {
+	ReservationFile resFile;
 
 }
 

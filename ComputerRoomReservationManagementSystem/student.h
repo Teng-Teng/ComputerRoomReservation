@@ -4,6 +4,7 @@
 #include "identity.h"
 #include "computerRoom.h"
 #include "globalFile.h"
+#include "reservationFile.h"
 
 // Student class
 class Student :public Identity {

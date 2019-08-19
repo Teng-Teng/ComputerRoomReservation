@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="administrator.cpp" />
     <ClCompile Include="computerRoomReservation.cpp" />
+    <ClCompile Include="reservationFile.cpp" />
     <ClCompile Include="student.cpp" />
     <ClCompile Include="teacher.cpp" />
   </ItemGroup>
@@ -133,6 +134,7 @@
     <ClInclude Include="computerRoom.h" />
     <ClInclude Include="globalFile.h" />
     <ClInclude Include="identity.h" />
+    <ClInclude Include="reservationFile.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="teacher.h" />
   </ItemGroup>

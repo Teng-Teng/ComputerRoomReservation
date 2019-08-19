@@ -27,6 +27,9 @@
     <ClCompile Include="administrator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="reservationFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="identity.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="computerRoom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="reservationFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
