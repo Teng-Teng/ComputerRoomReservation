@@ -1,5 +1,7 @@
 #pragma once
+#include <vector>
 #include "identity.h"
+#include "reservationFile.h"
 
 // Teacher class
 class Teacher :public Identity {

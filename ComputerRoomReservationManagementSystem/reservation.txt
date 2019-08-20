@@ -1,2 +1,3 @@
-date:3 period:1 studentId:2 studentName:rose roomId:3 status:1
-date:1 period:2 studentId:3 studentName:jason roomId:2 status:0
+date:5 period:2 stuId:1 stuName:jack roomId:2 status:-1
+date:1 period:1 stuId:2 stuName:rose roomId:1 status:2
+date:3 period:1 stuId:2 stuName:rose roomId:3 status:0

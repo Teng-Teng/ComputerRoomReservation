@@ -44,6 +44,37 @@ void studentMenu(Identity* &student) {
 	}
 }
 
+// Go to the teacher submenu page
+void teacherMenu(Identity* &teacher) {
+	while (true) {
+		// Call the teacher submenu
+		teacher->operMenu();
+
+		// Casting base class pointer to derived class pointer
+		Teacher* tea = (Teacher*)teacher;
+
+		int select = 0;
+		cin >> select;
+
+		if (select == 1) {
+			// View all reservation
+			tea->showAllReservation();
+		}
+		else if (select == 2) {
+			// Review reservation
+			tea->reviewReservation();
+		}
+		else {
+			// Logout
+			delete teacher;
+			cout << "Logout successful!" << endl;
+			system("pause");
+			system("cls");
+			return;
+		}
+	}
+}
+
 // Go to the administrator submenu page
 void administratorMenu(Identity* &administrator) {
 	while (true) {
@@ -163,6 +194,7 @@ void login(string fileName, int type) {
 				person = new Teacher(id, name, pwd);
 
 				// enter teacher submenu page
+				teacherMenu(person);
 
 				return;
 			}

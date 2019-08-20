@@ -95,7 +95,7 @@ void ReservationFile::updateReservation() {
 		ofs << "date:" << this->map_reservationData[i]["date"] << " ";
 		ofs << "period:" << this->map_reservationData[i]["period"] << " ";
 		ofs << "stuId:" << this->map_reservationData[i]["stuId"] << " ";
-		ofs << "stuName" << this->map_reservationData[i]["stuName"] << " ";
+		ofs << "stuName:" << this->map_reservationData[i]["stuName"] << " ";
 		ofs << "roomId:" << this->map_reservationData[i]["roomId"] << " ";
 		ofs << "status:" << this->map_reservationData[i]["status"] << endl;
 	}

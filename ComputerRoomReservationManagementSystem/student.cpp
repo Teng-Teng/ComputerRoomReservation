@@ -94,8 +94,8 @@ void Student::applyReservation() {
 
 	ofs << "date:" << date << " ";
 	ofs << "period:" << period << " ";
-	ofs << "studentId:" << this->m_Id << " ";
-	ofs << "studentName:" << this->m_Name << " ";
+	ofs << "stuId:" << this->m_Id << " ";
+	ofs << "stuName:" << this->m_Name << " ";
 	ofs << "roomId:" << room << " ";
 	ofs << "status:" << 1 << endl;
 
@@ -108,14 +108,136 @@ void Student::applyReservation() {
 void Student::showMyReservation() {
 	ReservationFile resFile;
 
+	if (resFile.m_Size == 0) {
+		cout << "No reservation record!" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+
+	// find your own reservation
+	for (int i = 0; i < resFile.m_Size; i++) {
+		if (this->m_Id == atoi(resFile.map_reservationData[i]["stuId"].c_str())) {
+			cout << "Reservation date: " << resFile.map_reservationData[i]["date"];
+			cout << ", Period: " << (resFile.map_reservationData[i]["period"] == "1" ? "Morning" : "Afternoon");
+			cout << ", Computer room number: " << resFile.map_reservationData[i]["roomId"];
+
+			string status = ", Status: ";
+
+			// 1--under review, 2--already reserved, -1--reserve failed, 0--cancel reservation
+			if (resFile.map_reservationData[i]["status"] == "1")
+				status += "under review";
+			else if (resFile.map_reservationData[i]["status"] == "2")
+				status += "already reserved";
+			else if (resFile.map_reservationData[i]["status"] == "-1")
+				status += "reserve failed, not approved";
+			else 
+				status += "reservation canceled";
+
+			cout << status << endl;
+		}
+	}
+
+	system("pause");
+	system("cls");
 }
 
 // View all reservation
 void Student::showAllReservation() {
+	ReservationFile resFile;
 
+	if (resFile.m_Size == 0) {
+		cout << "No reservation record!" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+
+	for (int i = 0; i < resFile.m_Size; i++) {
+		cout << i + 1 << ". ";
+		cout << "Reservation date: " << resFile.map_reservationData[i]["date"];
+		cout << ", Period: " << (resFile.map_reservationData[i]["period"] == "1" ? "Morning" : "Afternoon");
+		cout << ", Student ID: " << resFile.map_reservationData[i]["stuId"];
+		cout << ", Student name: " << resFile.map_reservationData[i]["stuName"];
+		cout << ", Computer room number: " << resFile.map_reservationData[i]["roomId"];
+
+		string status = ", Status: ";
+
+		// 1--under review, 2--already reserved, -1--reserve failed, 0--cancel reservation
+		if (resFile.map_reservationData[i]["status"] == "1")
+			status += "under review";
+		else if (resFile.map_reservationData[i]["status"] == "2")
+			status += "already reserved";
+		else if (resFile.map_reservationData[i]["status"] == "-1")
+			status += "reserve failed, not approved";
+		else
+			status += "reservation canceled";
+
+		cout << status << endl;
+	}
+
+	system("pause");
+	system("cls");
 }
 
 // Cancel reservation
 void Student::cancelReservation() {
+	ReservationFile resFile;
 
+	if (resFile.m_Size == 0) {
+		cout << "No reservation record!" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+
+	cout << "Records under review or successfully reserved can be canceled" << endl;
+
+	vector<int> v;
+	int index = 1;
+	for (int i = 0; i < resFile.m_Size; i++) {
+		if (this->m_Id == atoi(resFile.map_reservationData[i]["stuId"].c_str())) {
+			if (resFile.map_reservationData[i]["status"] == "1" || resFile.map_reservationData[i]["status"] == "2") {
+				v.push_back(i);
+
+				cout << index++ << ". ";
+				cout << "Reservation date: " << resFile.map_reservationData[i]["date"];
+				cout << ", Period: " << (resFile.map_reservationData[i]["period"] == "1" ? "Morning" : "Afternoon");
+				cout << ", Computer room number: " << resFile.map_reservationData[i]["roomId"];
+
+				string status = ", Status: ";
+
+				// 1--under review, 2--already reserved
+				if (resFile.map_reservationData[i]["status"] == "1")
+					status += "under review";
+				else if (resFile.map_reservationData[i]["status"] == "2")
+					status += "already reserved";
+
+				cout << status << endl;
+			}
+		}
+	}
+
+	cout << "Please enter the record number to cancel(press 0 to return):" << endl;
+
+	int select = 0;
+	while (true) {
+		cin >> select;
+
+		if (select >= 0 && select <= v.size()) {
+			if (select == 0)
+				break;
+			else {
+				resFile.map_reservationData[v[select - 1]]["status"] = "0";
+				resFile.updateReservation();
+				cout << "Reservation has been cancelled!" << endl;
+				break;
+			}
+		}
+
+		cout << "Incorrect input, please re-enter: " << endl;
+	}
+
+	system("pause");
+	system("cls");
 }
