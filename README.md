@@ -49,5 +49,6 @@
 
 
 ### 5. Flow chart
-![Reservation system main interface ](https://user-images.githubusercontent.com/14805432/63522040-9d68c000-c4c5-11e9-9d66-4672405814c5.png)
+![Reservation system main interface](https://user-images.githubusercontent.com/14805432/63535886-7e2b5c00-c4e0-11e9-90d8-cc853fd34a05.png)
+
 
