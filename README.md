@@ -17,30 +17,30 @@
 
 ### 4. The functions that need to be implemented in the system are as follows：
 
-### First enter the login interface, the login identity that can be chosen:
+#### First enter the login interface, the login identity that can be chosen:
 - Student representative
 - Teacher
 - Administrator
 - Quit system
 
-### Each identity needs to be verified, then enter the submenu
+#### Each identity needs to be verified, then enter the submenu
 - Student login requires: student ID, name, password
 - Teacher login requires: teacher ID, name, password
 - Administrator login requires: name, password
 
-### Student
+#### Student
 - Apply for reservation: apply for the computer room
 - View my reservation
 - View all reservation
 - Cancel reservation
 - Logout
 
-### Teacher
+#### Teacher
 - View all reservation
 - Review reservation
 - Logout
 
-### Administrator
+#### Administrator
 - Add account
 - View account
 - View computer room
