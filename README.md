@@ -49,34 +49,5 @@
 
 
 ### 5. Flow chart
-```mermaid
-graph LR
-A[Reservation system main interface] --> B(Student representative)
-B -- Apply reservation --> F(Choose date: monday to friday)
-B -- Apply reservation --> G(Choose period: morning/afternoon)
-B -- Apply reservation --> H(Choose computer room: 1/2/3)
-B -- Apply reservation --> I(Generate record)
-B --> J(View my reservation)
-B --> K(View all reservation)
-B --> L(Cancel reservation)
-B -- Logout --> M(Logout as student)
+![Reservation system main interface ](https://user-images.githubusercontent.com/14805432/63522040-9d68c000-c4c5-11e9-9d66-4672405814c5.png)
 
-A --> C(Teacher)
-C --> N(View all reservation)
-C -- Review reservation --> O(Audit success)
-C -- Review reservation --> P(Audit failed)
-C -- Logout --> Q(Logout as teacher)
-
-A --> D(Administrator)
-D -- Add student account --> R(Student ID,name,password)
-D -- Add teacher account --> S(Teacher ID,name,password)
-D -- View account --> T(View student information)
-D -- View account --> U(View teacher information)
-D -- View computer room --> V(Show computer room number and maximum capacity)
-D -- Clear reservation --> W(Clear reservation file)
-D -- Logout --> X(Logout as administrator)
-
-A -- Logout --> E(Logout the system)
- 
-
-```
